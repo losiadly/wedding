@@ -7,7 +7,9 @@ var appMaster = {
             imageSources.push(sources);
         });
         if($(imageSources).load()){
-            $('.pre-loader').fadeOut('slow');
+            setTimeout(function() {
+                $('.pre-loader').fadeOut('slow');
+            }, 1000);
         }
     },
 
@@ -26,73 +28,6 @@ var appMaster = {
                 }
             }
         });
-    },
-
-    reviewsCarousel: function() {
-        // Reviews Carousel
-        $('.review-filtering').slick({
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            dots: true,
-            arrows: false,
-            autoplay: true,
-            autoplaySpeed: 5000
-        });
-    },
-
-    screensCarousel: function() {
-        // Screens Carousel
-        $('.filtering').slick({
-            slidesToShow: 4,
-            slidesToScroll: 4,
-            dots: false,
-            responsive: [{
-                breakpoint: 1024,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 2,
-                    infinite: true,
-                    dots: true
-                }
-            }, {
-                breakpoint: 600,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 2
-                }
-            }, {
-                breakpoint: 480,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1
-                }
-            }]
-        });
-
-        $('.js-filter-all').on('click', function() {
-            $('.filtering').slickUnfilter();
-            $('.filter a').removeClass('active');
-            $(this).addClass('active');
-        });
-
-        $('.js-filter-one').on('click', function() {
-            $('.filtering').slickFilter('.one');
-            $('.filter a').removeClass('active');
-            $(this).addClass('active');
-        });
-
-        $('.js-filter-two').on('click', function() {
-            $('.filtering').slickFilter('.two');
-            $('.filter a').removeClass('active');
-            $(this).addClass('active');
-        });
-
-        $('.js-filter-three').on('click', function() {
-            $('.filtering').slickFilter('.three');
-            $('.filter a').removeClass('active');
-            $(this).addClass('active');
-        });
-
     },
 
     animateScript: function() {
@@ -144,74 +79,65 @@ var appMaster = {
 
 
 $(document).ready(function() {
-    // $('.carousel-inner').find('.fill').each(function(){
-	// 	var self = $(this);
-	// 	if (self.attr('data-image-background')){
-	// 		var imageUrl = self.attr('data-image-background');
-	// 		self.css('background-image', 'url(' + imageUrl + ')');
-	// 	}
-	// });
-	// $("#remember-me").validate({
-	// 	rules: {
-	// 		name: {
-	// 			required: true,
-	// 			minlength: 3
-	// 		},
-	// 		email: {
-	// 			required: true,
-	// 			email: true
-	// 		},
-	// 		message: {
-	// 			required: true,
-	// 			minlength: 3
-	// 		}
-	// 	},
-	// 	messages: {
-	// 		name: {
-	// 			required: "Proszę podaj swoje imię.",
-	// 			minlength: "Twoje imie musi mieć minimum 3 znaki"
-	// 		},
-	// 		email: "Proszę wprowadź poprawny adres email",
-	// 		message: {
-	// 			required: "Proszę wpisz wiadomość",
-	// 			minlength: "Twoja wiadomość musi mieć minimum 3 znaki"
-	// 		},
-	// 	}
-	// });
-    //
-    //
-	// // Prevent form submission
-	// $( "button.sendButton" ).click(function( event ) {
-	// 	if($("#remember-me").valid()){
-	// 		var data = {};
-	// 		data.email = $('input#email').val();
-	// 		data.name= $('input#name').val();
-	// 		data.message = $('textarea#message').val();
-	// 		$.ajax({
-	// 			url : 'sendemail.php',
-	// 			dataType: 'json',
-	// 			type: 'GET',
-	// 			data: data,
-	// 			success : function (result) {
-	// 				if (result.type === "success"){
-	// 					$('.alert-success').show(function(){
-	// 						$(this).html(result.message);
-	// 					})
-	// 					$('form').hide();
-	// 					$('input#email').val('');
-	// 					$('input#name').val('');
-	// 					$('textarea#message').val('');
-	// 				}
-	// 			},
-	// 			error : function(result) {
-	// 				console.log('ERROR ' + result.message);
-	// 			}
-    //
-	// 		});
-	// 	}
-	// 	return false	;
-	// });
-    /**
+	$("#remember-me").validate({
+		rules: {
+			name: {
+				required: true,
+				minlength: 3
+			},
+			email: {
+				required: true,
+				email: true
+			},
+			message: {
+				required: true,
+				minlength: 3
+			}
+		},
+		messages: {
+			name: {
+				required: "Proszę podaj swoje imię.",
+				minlength: "Twoje imie musi mieć minimum 3 znaki"
+			},
+			email: "Proszę wprowadź poprawny adres email",
+			message: {
+				required: "Proszę wpisz wiadomość",
+				minlength: "Twoja wiadomość musi mieć minimum 3 znaki"
+			},
+		}
+	});
+	// Prevent form submission
+	$( "button.sendButton" ).click(function( event ) {
+		if($("#remember-me").valid()){
+			var data = {};
+			data.email = $('input#email').val();
+			data.name= $('input#name').val();
+			data.message = $('textarea#message').val();
+			$.ajax({
+				url : 'sendemail.php',
+				dataType: 'json',
+				type: 'GET',
+				data: data,
+				success : function (result) {
+					if (result.type === "success"){
+						$('.alert-success').show(function(){
+							$(this).html(result.message);
+						})
+						$('form').hide();
+						$('input#email').val('');
+						$('input#name').val('');
+						$('textarea#message').val('');
+					}
+				},
+				error : function(result) {
+					console.log('ERROR ' + result.message);
+				}
+
+			});
+		}
+		return false;
+	});
+/**
 * Set your date here  (YEAR, MONTH (0 for January/11 for December), DAY, HOUR, MINUTE, SECOND)
 * according to the GMT+0 Timezone
 **/
@@ -255,17 +181,13 @@ function setDate(){
 }
     appMaster.smoothScroll();
 
-    appMaster.reviewsCarousel();
-
-    appMaster.screensCarousel();
-
     appMaster.animateScript();
 
     appMaster.revSlider();
 
     appMaster.scrollMenu();
 
-    appMaster.placeHold();
+    //appMaster.placeHold();
 
 });
 /******************************************************************************************************************************
@@ -297,7 +219,7 @@ ANIMATIONS
 
                 setTimeout(function () {
                     $this.addClass(animated);
-                }, 50 * i);
+                }, 100 * i);
             });
         }
         animated_contents();
