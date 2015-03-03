@@ -191,6 +191,7 @@ section#about .about-item {
   font-size: 17px;
   line-height: 25px;
   color: #999999;
+  font-weight: 100;
 }
 section#about .about-item .man{
     background: url("../images/man.jpg") no-repeat;
