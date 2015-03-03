@@ -1250,6 +1250,7 @@ a.logoLink{
     position: relative;
     width: 45%;
     background: #ffffff;
+    border-radius: 10px;
 }
 .timeline > li > .timeline-panel::before {
     border-color: transparent #ccc;
@@ -1319,6 +1320,7 @@ a.logoLink{
 }
 .timeline-body > p, .timeline-body > ul {
     margin-bottom: 0;
+    font-weight: 100;
 }
 .timeline-body > p + p {
     margin-top: 5px;
