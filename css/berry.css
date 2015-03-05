@@ -228,7 +228,7 @@ section#about .about-item .jacek{
 section#about .about-item .marta{
     background: url("../images/marta.jpg") no-repeat;
     background-size: 200px 200px;
-}
+} 
 section#about .about-item .lukasz{
     background: url("../images/lukasz.jpg") no-repeat;
     background-size: 200px 200px;
@@ -504,6 +504,9 @@ section#contact .media .media-heading {
 }
 section#contact .media .media-heading a {
   font-weight: 300;
+}
+section#contact h2{
+  font-weight: 100;
 }
 /* footer section */
 footer {
@@ -878,6 +881,12 @@ section#news {
 section#news p{
     font-family: "Oswald",sans-serif;
     font-weight: 100;
+    font-size: 17px;
+    line-height: 25px;
+    color: #999999;
+}
+section#news .thumbnail h3{
+  font-weight: 200;
 }
 section#news header h1:after {
   background: #ffffff;
