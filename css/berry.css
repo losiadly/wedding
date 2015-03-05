@@ -225,7 +225,14 @@ section#about .about-item .jacek{
     background: url("../images/jacek.jpg") no-repeat;
     background-size: 200px 200px;
 }
-
+section#about .about-item .marta{
+    background: url("../images/marta.jpg") no-repeat;
+    background-size: 200px 200px;
+}
+section#about .about-item .lukasz{
+    background: url("../images/lukasz.jpg") no-repeat;
+    background-size: 200px 200px;
+}
 section#about .about-item .portrait,
 section#about .about-item .portraitMin{
     width: 300px;
@@ -869,7 +876,8 @@ section#news {
     background: #f6f6f6;
 }
 section#news p{
-    font-family: 'Open+Sans', sans-serif;
+    font-family: "Oswald",sans-serif;
+    font-weight: 100;
 }
 section#news header h1:after {
   background: #ffffff;
