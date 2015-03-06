@@ -676,7 +676,7 @@ form .form-control.error {
     border: 2px solid red;
 }
 @media screen and (max-width: 640px) {
-  .timeBox{display: none}
+  .timeBox{display: none;}
   .tp-banner{display: none}
   .logo {
     width: 100px;
@@ -747,6 +747,14 @@ form .form-control.error {
     -ms-border-radius: 5em;
     -o-border-radius: 5em;
     border-radius: 5em;
+  }
+  header {
+   background: url('./slider/1.jpg') no-repeat top center;
+  }
+  .tp-banner-container{display: none !important}
+  header .navbar-default .navbar-brand {
+    padding: 20px;
+    font-size: 16px;
   }
 }
 header {
@@ -1201,7 +1209,7 @@ form .form-control:focus {
     60%  {opacity: .6;}
     100%  {opacity: 1;}
 }
-.timeBox{margin-left: -500px; width: 1000px; position: absolute; z-index:100;text-align:center; top: 150px; left: 50%;}
+.timeBox{width: 100%; position: absolute; z-index:100;text-align:center; top: 150px;}
 .timeBox h1.title {
     font-family: "Oswald",sans-serif;
     font-weight: 100;
