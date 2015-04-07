@@ -162,7 +162,8 @@ function setDate(){
         message.html('WESELE CZAS ZACZĄĆ...');
     }
     else{
-        var s = -now.getTimezoneOffset()*60 + (launch.getTime() - now.getTime())/1000;
+        var s = (launch.getTime() - now.getTime())/1000;
+
         var d = Math.floor(s/86400);
         days.html('<h1>'+d+'</h1><p>Dni</p>');
         s -= d*86400;
